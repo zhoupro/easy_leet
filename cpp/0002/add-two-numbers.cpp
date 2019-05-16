@@ -27,28 +27,32 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-#include <stack>
-#include <iostream>
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode * header = new ListNode(1), * cur;
         cur = header;
-        int val1, val2, add_sum, tmp_node_val, carry_num = 0;
+        int val1, val2, add_sum,  carry_num = 0;
         while(l1 || l2){
-            val1 = l1->val?l1->val:0;
-            val2 = l2->val?l2->val:0;
-            add_sum = val1 + val2;
+            val1 = l1?l1->val:0;
+            val2 = l2?l2->val:0;
+            add_sum = val1 + val2 + carry_num;
             if(add_sum >= 10){
-                tmp_node_val = add_sum - 10;
+                add_sum = add_sum - 10;
                 carry_num = 1;
             }else{
                 carry_num = 0;
             }
             cur->next = new ListNode(add_sum);
             cur = cur->next;
-            if(l1) l1 = l1->next;
-            if(l2) l2 = l2->next;
+
+            if(l1 != NULL){
+                l1 = l1->next;
+            };
+            if(l2 != NULL)
+            {
+                l2 = l2->next;
+            };
         }
         if(carry_num){
             cur->next = new ListNode(1);
