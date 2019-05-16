@@ -45,7 +45,7 @@ public:
             se.insert(s[i]);
             max_len++; 
             for(int j=i+1; j<str_len; j++){
-                if( se.find(s[j]) != se.end()){
+                if( (se.find(s[j]) != se.end()) || ((str_len - i + 1) <= most_len)){
                     break;
                 }else{
                     se.insert(s[j]);
@@ -55,7 +55,7 @@ public:
             if(max_len > most_len){
                 most_len = max_len;
             }
-            se.empty();
+            se.clear();
             max_len = 0;
         }
         return most_len;
