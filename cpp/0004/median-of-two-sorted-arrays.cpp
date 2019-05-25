@@ -1,3 +1,32 @@
+/* Median of Two Sorted Arrays
+ * 
+ * [Hard] [AC:26.3% 433.6K of 1.6M] [filetype:cpp]
+ * 
+ * There are two sorted arrays nums1 and nums2 of size m and n
+ * respectively.
+ * 
+ * Find the median of the two sorted arrays. The overall run time
+ * complexity should be O(log (m+n)).
+ * 
+ * You may assume nums1 and nums2 cannot be both empty.
+ * 
+ * Example 1:
+ * 
+ * nums1 = [1, 3]
+ * 
+ * nums2 = [2]
+ * 
+ * The median is 2.0
+ * 
+ * Example 2:
+ * 
+ * nums1 = [1, 2]
+ * 
+ * nums2 = [3, 4]
+ * 
+ * The median is (2 + 3)/2 = 2.5
+ * 
+ * [End of Description] */
 #include <vector>
 #include <iostream>
 class Solution {
@@ -10,7 +39,10 @@ public:
             mid = findTopK(nums1, nums2, topK);
         }else{
             int topK = (two_array_len+1) / 2;
-            mid = (findTopK(nums1, nums2, topK) + findTopK(nums1, nums2, topK+1) ) / 2;
+            int topKNum = findTopK(nums1, nums2, topK);
+            int topKNextNum = findTopK(nums1, nums2, topK+1);
+            return (topKNum + topKNextNum) / 2.0;
+
         }
         return mid;
     }
@@ -32,19 +64,19 @@ public:
             }
         }
         // break condition end
-        int mid = (topK+1) / 2;
-        int nums1mid = nums1.size() >= mid ? mid: nums1.size();
-        int nums2mid = nums2.size() >= mid ? mid: nums2.size();
-
-        if(nums1[nums1mid -1] < nums2[nums2mid-1] ){
-            nums1 = std::vector<int>(nums1.begin()+nums1mid , nums1.end());
-            mid = nums1mid;
-        }else{
-            nums2 = std::vector<int>(nums2.begin()+nums2mid , nums2.end());
-            mid = nums2mid;
+        int max_de_num = topK / 2;
+        if(nums1.size()< max_de_num){
+            max_de_num = nums1.size();
         }
-        
-        topK -= mid;
+        if(nums2.size() < max_de_num){
+            max_de_num = nums2.size();
+        }
+ if(nums1[max_de_num -1] < nums2[max_de_num - 1] ){
+            nums1 = std::vector<int>(nums1.begin()+max_de_num , nums1.end());
+        }else{
+            nums2 = std::vector<int>(nums2.begin()+max_de_num , nums2.end());
+        }
+        topK = topK - max_de_num ;
         return findTopK(nums1, nums2, topK);
     }
     bool isOdd(int num){
