@@ -17,6 +17,7 @@ There is no better way to judge programer level.Just manage it.
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
 |263|[Ugly Number](https://leetcode.com/problems/ugly-number/)| [C++](./cpp/0263/ugly-number.cpp)|Easy|
+|8|[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)| [C++](./cpp/0008/string-to-integer-atoi.cpp|Medium|
 |7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)| [C++](./cpp/0007/reverse-integer.cpp)|Easy|
 |6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)| [C++](./cpp/0006/zigzag-conversion.cpp)|Medium|
 |5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)| [C++](./cpp/0005/longest-palindromic-substring.cpp)|Medium|
