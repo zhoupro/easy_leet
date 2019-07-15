@@ -3,12 +3,11 @@ Practice makes perfect!
 
 ## language
 * cpp because of  large libray.
-* c  for it's cute and musthave skill.
-* go and php for funny and daily work.
+* go for funny and daily work.
+* java for widely used.
 
-## why
-There is no better way to judge programer level.Just manage it.
-
+## Reason
+practice purpose to be a good programer.
 
 ## LeetCode
 
